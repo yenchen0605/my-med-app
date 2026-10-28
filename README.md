@@ -1,75 +1,41 @@
-# React + TypeScript + Vite
+# 護理車藥物辨識系統
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 專案介紹
+本專案延伸碩士論文中對既有醫療車藥物辨識系統的使用性研究，根據使用者操作回饋及研究結果，使用 React、TypeScript 與 Tailwind CSS，自行開發簡化版的藥物辨識系統前端介面。
+系統以護理人員的給藥核對流程為設計基礎，包含人員登入、病患給藥排程及藥物核對工作台等功能，著重於介面資訊呈現、操作流程與使用便利性。
 
-Currently, two official plugins are available:
+## 使用技術
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **React：** 採用元件化方式建立操作介面，並透過 React Hooks 管理互動狀態。
+- **TypeScript：** 定義護理師、病患及藥品等資料結構，提高程式碼的可讀性與維護性。
+- **Tailwind CSS：** 負責介面排版、視覺樣式及操作狀態設計。
+- **Vite：** 作為前端開發環境與專案建置工具。
 
-## React Compiler
+## 主要功能
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 1. 醫護人員登入介面
+- 員工代號輸入及模擬登入流程。
+- 值班人員快速登入選項。
+- 提供字體大小調整功能。
 
-## Expanding the ESLint configuration
+### 2. 病患給藥排程
+- 顯示病患基本資訊及給藥時段。
+- 呈現待核對藥品數量與核對狀態。
+- 提供病患清單與藥物核對工作台之間的頁面切換。
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 3. 藥物核對工作台
+- 顯示目標藥品名稱、圖片及數量。
+- 提供藥品詳細資訊與圖片放大預覽。
+- 實作操作確認機制及按鈕狀態控制。
+- 規劃即時影像辨識區域及辨識結果呈現介面。
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## 開發狀態
+目前已完成主要操作介面、頁面切換、表單互動及 React 狀態管理等功能。
+系統目前使用程式內建的模擬資料呈現病患資訊與藥物核對流程，尚未串接後端API或實際資料庫。
+即時藥物影像辨識功能仍在規劃與開發階段，尚未完成攝影機影像擷取及辨識模型整合。
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 專案背景與目的
+本專案為碩士論文研究的延伸實作，主要希望將使用性評估中發現的介面問題與改善建議，嘗試應用於系統介面開發。
+透過 React 與 TypeScript 實作醫療車藥物核對系統的操作介面，累積前端元件設計、狀態管理及互動功能開發經驗。
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
-
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+**註：** 本專案屬於前端介面原型展示，並非可實際應用於臨床給藥核對或藥物辨識的正式醫療系統。
