@@ -55,7 +55,7 @@ const initialPatients: PatientTask[] = [
     patientName: '陳大明',
     mrn: '19032348',
     status: 'pending',
-    time: '18:00 晚班處方',
+    time: '09:00 早班處方',
     medicines: [
       {
         id: 'p1-m1',
